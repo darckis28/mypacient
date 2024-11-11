@@ -6,7 +6,7 @@ import { FaUsers } from "react-icons/fa";
 const Aside = () => {
   return (
     <aside className=" [grid-area:aside] bg-gradientApp">
-      <ul className="py-2 pl-4">
+      <ul className="py-2 md:pl-4">
         <LinkDash href={"../"} icon={<IoHomeSharp />}>
           Inicio
         </LinkDash>

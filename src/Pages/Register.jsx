@@ -4,7 +4,7 @@ import ContextRegister from "../context/ContextRegister";
 
 const Register = () => {
   return (
-    <div className="p-8 overflow-y-scroll">
+    <div className="p-3 md:p-8 ">
       <ContextRegister>
         <Search />
         <FromRegister />

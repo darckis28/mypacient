@@ -6,7 +6,7 @@ const LinkDash = ({ icon, href, children }) => {
         to={href}
         className="w-full p-2 hover:scale-95 hover:bg-colorPrimary transition-all  uppercase rounded-l-full flex gap-2 items-center text-white font-semibold ">
         <span>{icon}</span>
-        {children}
+        <p className="hidden md:block">{children} </p>
       </Link>
     </li>
   );
