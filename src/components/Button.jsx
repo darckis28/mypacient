@@ -1,7 +1,12 @@
-const Button = ({ children }) => {
+const Button = ({ children, color, hoverColor, onClick }) => {
   return (
     <button
-      className="px-6 py-2 min-w-[120px] text-center text-white bg-colorPrimary border border-colorbg-colorPrimary rounded  hover:bg-transparent hover:text-colorPrimary focus:outline-none focus:ring"
+      onClick={onClick}
+      className={`px-6 py-2  text-center text-white
+         ${color ? color : "bg-colorPrimary"} 
+         border border-colorbg-colorPrimary rounded  hover:bg-transparent 
+      ${hoverColor ? hoverColor : " hover:text-colorPrimary"} 
+      border border-colorbg-colorPrimary rofocus:outline-none focus:ring`}
       href="/download">
       {children}
     </button>

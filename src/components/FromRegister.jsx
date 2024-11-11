@@ -93,13 +93,14 @@ const FromRegister = () => {
         </span>
         <select
           required
-          name="Sexo"
+          name="sexo"
+          onChange={handleChange}
           className="w-full  h-9 pl-8 pr-3 text-gray-400 border focus:outline-none rounded shadow-sm focus:border-blue-500 text-sm uppercase">
           <option selected hidden disabled>
             Seleccione su Genero
           </option>
-          <option value="Hombre">Masculino</option>
-          <option value="Mujer">Femenino</option>
+          <option value="HOMBRE">Masculino</option>
+          <option value="MUJER">Femenino</option>
           <option value="LGTV">38 tipos de gays</option>
         </select>
       </div>
