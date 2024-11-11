@@ -1,11 +1,5 @@
-// import Header from "./components/Header";
-// import Aside from "./components/Aside";
-// import Content from "./components/Content";
-
 import Context from "./context/Context";
-import MainRouter from "./router/mainRouter";
-
-// import { BrowserRouter } from "react-router-dom";
+import MainRouter from "./router/MainRouter";
 function App() {
   return (
     <main id="app">
