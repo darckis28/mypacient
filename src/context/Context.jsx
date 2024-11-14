@@ -4,6 +4,8 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "ADD":
       return [...state, { ...action.payload }];
+    case "DELETE":
+      return state.filter((data) => data.dni !== action.payload.dni);
   }
 };
 

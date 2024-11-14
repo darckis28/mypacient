@@ -33,7 +33,10 @@ const FromRegister = () => {
     }));
   };
   return (
-    <form className="max-w-96 mx-auto mt-10" onSubmit={handelSubmit}>
+    <form
+      className="max-w-96 mx-auto mt-10"
+      onSubmit={handelSubmit}
+    >
       <legend className="mb-4 text-center font-bold text-2xl text-colorSecundary">
         Registrar paciente
       </legend>
@@ -92,16 +95,19 @@ const FromRegister = () => {
           <FaTransgender />
         </span>
         <select
-          required
           name="sexo"
           onChange={handleChange}
-          className="w-full  h-9 pl-8 pr-3 text-gray-400 border focus:outline-none rounded shadow-sm focus:border-blue-500 text-sm uppercase">
-          <option selected hidden disabled>
+          className="w-full  h-9 pl-8 pr-3 text-gray-400 border focus:outline-none rounded shadow-sm focus:border-blue-500 text-sm uppercase"
+        >
+          <option
+            selected
+            hidden
+            disabled
+          >
             Seleccione su Genero
           </option>
           <option value="HOMBRE">Masculino</option>
           <option value="MUJER">Femenino</option>
-          <option value="LGTV">38 tipos de gays</option>
         </select>
       </div>
 

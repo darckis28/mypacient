@@ -3,7 +3,8 @@ const InputStyle = ({ icon, name, placeholder, type, value, onChange }) => {
     <div className="mb-4">
       <label
         htmlFor="input-6"
-        className="block text-sm font-medium text-gray-100">
+        className="block text-sm font-medium text-gray-100"
+      >
         {name}
       </label>
       <div className="relative mt-1">
