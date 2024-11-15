@@ -4,13 +4,31 @@ import { RiDeleteBin6Fill } from "react-icons/ri";
 import { FaEdit } from "react-icons/fa";
 import { FaListAlt } from "react-icons/fa";
 import Button from "./Button";
+import Swal from "sweetalert2";
 import { useContextGlobal } from "../hooks/useContextGlobal";
 const ListPacients = ({ client }) => {
   const { nombres, apellidoPaterno, apellidoMaterno, dni, direccion, sexo } =
     client;
   const { dispatchClients } = useContextGlobal();
-  const deleteClient = (dni) => {
-    dispatchClients({ type: "DELETE", payload: { dni: dni } });
+  const deleteClient = (dni, nombres, apellidoPaterno) => {
+    Swal.fire({
+      title: `Estas seguro de eliminar a ${nombres} ${apellidoPaterno}`,
+      text: "¡No podrás revertir esto!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si, Eliminalo!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatchClients({ type: "DELETE", payload: { dni: dni } });
+        Swal.fire({
+          title: "Paciente Eliminado!",
+          text: "Su paciente a sido eliminado con exito",
+          icon: "success",
+        });
+      }
+    });
   };
   return (
     <li className="overflow-hidden rounded-md">
@@ -45,7 +63,7 @@ const ListPacients = ({ client }) => {
           <Button
             color={"bg-red-500"}
             hoverColor={"hover:text-red-500"}
-            onClick={() => deleteClient(dni)}
+            onClick={() => deleteClient(dni, nombres, apellidoPaterno)}
           >
             <RiDeleteBin6Fill />
           </Button>
