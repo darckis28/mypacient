@@ -6,13 +6,32 @@ import { useContextRegister } from "../hooks/useContextRegister";
 import { useContextGlobal } from "../hooks/useContextGlobal";
 import { FaTransgender } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { MdNotificationImportant } from "react-icons/md";
+import { useState } from "react";
 
 const FromRegister = () => {
-  const { dispatchClients } = useContextGlobal();
+  const { dispatchClients, clients } = useContextGlobal();
   const { pacient, setPacient } = useContextRegister();
   const navigate = useNavigate();
+  const [message, setMessage] = useState(false);
   function handelSubmit(e) {
     e.preventDefault();
+
+    if (clients.some((client) => client.dni === pacient.dni)) {
+      setMessage(true);
+      setTimeout(() => {
+        setMessage(false);
+        setPacient({
+          nombres: "",
+          apellidoMaterno: "",
+          apellidoPaterno: "",
+          dni: "",
+          direccion: "",
+        });
+      }, 3000);
+      return;
+    }
+    setMessage(false);
     dispatchClients({ type: "ADD", payload: pacient });
     setPacient({
       nombres: "",
@@ -21,7 +40,7 @@ const FromRegister = () => {
       dni: "",
       direccion: "",
     });
-    navigate("/pacientes");
+    navigate(`/register/${pacient.dni}`);
   }
 
   // funcion que guarda datos de los inputs en el form como objetos
@@ -110,6 +129,12 @@ const FromRegister = () => {
           <option value="MUJER">Femenino</option>
         </select>
       </div>
+      {message && (
+        <div className="w-full bg-red-400 font-bold flex gap-2 items-center mb-2">
+          <MdNotificationImportant />
+          <p className="">Este Paciente ya esta registrado </p>
+        </div>
+      )}
 
       <Button>Registrar</Button>
     </form>
