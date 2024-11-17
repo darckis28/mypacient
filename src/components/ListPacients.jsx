@@ -50,7 +50,7 @@ const ListPacients = ({ client }) => {
         />
       </div>
       <div className="bg-white p-2">
-        <h2 className="font-bold text-sm">
+        <h2 className="font-bold text-sm min-h-11">
           {nombres} {apellidoPaterno} {apellidoMaterno}
         </h2>
         <p className="font-bold text-sm">
